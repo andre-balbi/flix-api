@@ -19,8 +19,6 @@ class MovieSerializer(serializers.ModelSerializer):
         if rate:
             return round(rate, 1)
 
-        return None
-
         # reviews = obj.reviews.all()
         # if reviews:
         #     return round(sum(review.stars for review in reviews) / len(reviews), 1)

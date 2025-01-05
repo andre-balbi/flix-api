@@ -17,9 +17,7 @@ class MovieSerializer(serializers.ModelSerializer):
         # ["stars__avg"] is used to get the average of the stars field in the Review model.
         rate = obj.reviews.aggregate(Avg("stars"))["stars__avg"]
         if rate:
-            return round(rate, 1)
-
-        return None
+            return round(rate, 2)
 
         # reviews = obj.reviews.all()
         # if reviews:

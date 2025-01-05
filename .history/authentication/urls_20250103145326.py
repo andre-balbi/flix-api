@@ -1,8 +1,4 @@
 from django.urls import path
-from . import (
-    views,
-    # Import all view functions from the views.py file, which is in the same directory as this urls.py file.
-)
 
 
 urlpatterns = [

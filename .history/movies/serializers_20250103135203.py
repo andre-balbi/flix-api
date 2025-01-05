@@ -15,11 +15,9 @@ class MovieSerializer(serializers.ModelSerializer):
     def get_rate(self, obj):
         # It uses the related_name of the ForeignKey field in the Review model.
         # ["stars__avg"] is used to get the average of the stars field in the Review model.
-        rate = obj.reviews.aggregate(Avg("stars"))["stars__avg"]
+        rate = obj.reviews.aggregate(Avg("stars"))
         if rate:
-            return round(rate, 1)
-
-        return None
+            return rate
 
         # reviews = obj.reviews.all()
         # if reviews:
