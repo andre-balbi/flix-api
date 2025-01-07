@@ -1,7 +1,15 @@
 from rest_framework import generics
+
+# , exceptions
 from django.http import JsonResponse
 from genres.models import Genre
 from genres.serializers import GenreSerializer
+
+from rest_framework.permissions import IsAuthenticated
+
+# from genres.permissions import GenrePermissionClass
+from app.permissions import GlobalDefaultPermission
+
 
 # from django.http import JsonResponse
 # from django.views.decorators.csrf import csrf_exempt
@@ -10,8 +18,18 @@ from genres.serializers import GenreSerializer
 
 
 class GenreCreateListeView(generics.ListCreateAPIView):
+    permission_classes = (
+        IsAuthenticated,
+        # GenrePermissionClass,
+        GlobalDefaultPermission,
+    )
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+
+    # def handle_exception(self, exc):
+    # if isinstance(exc, exceptions.NotAuthenticated):
+    #     return JsonResponse({"detail": "acesso negado"}, status=403)
+    # return super().handle_exception(exc)
 
 
 # class GenreRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
@@ -20,6 +38,11 @@ class GenreCreateListeView(generics.ListCreateAPIView):
 
 
 class GenreRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (
+        IsAuthenticated,
+        # GenrePermissionClass,
+        GlobalDefaultPermission,
+    )
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
 
@@ -28,7 +51,7 @@ class GenreRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
         try:
             instance.delete()
             return JsonResponse(
-                {"detail": "🎉 Genre deleted successfully!"}, status=204
+                {"detail": "❌ Genre deleted successfully!"}, status=204
             )
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)

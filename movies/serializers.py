@@ -35,4 +35,12 @@ class MovieSerializer(serializers.ModelSerializer):
     def validate_resume(self, value):
         if len(value) > 500:
             raise serializers.ValidationError("Resume must be 200 characters or less")
+
         return value
+
+
+class MovieStatsSerializer(serializers.Serializer):
+    total_movies = serializers.IntegerField()
+    movies_by_genre = serializers.ListField()
+    total_reviews = serializers.IntegerField()
+    average_total_stars = serializers.FloatField()

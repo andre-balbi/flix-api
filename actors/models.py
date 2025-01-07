@@ -14,6 +14,7 @@ NATIONALITY_CHOICES = (
     ("JP", "Japan"),
     ("CN", "China"),
     ("BR", "Brazil"),
+    ("LB", "Libanon"),
 )
 
 
