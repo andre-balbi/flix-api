@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ("name", models.CharField(max_length=200)),
                 ("birthday", models.DateField(blank=True, null=True)),
                 (
-                    "natiolanity",
+                    "nationality",
                     models.CharField(
                         blank=True,
                         choices=[
