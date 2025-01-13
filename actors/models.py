@@ -2,19 +2,19 @@ from django.db import models
 
 
 NATIONALITY_CHOICES = (
-    ("US", "United States"),
-    ("CA", "Canada"),
-    ("MX", "Mexico"),
-    ("ES", "Spain"),
-    ("FR", "France"),
-    ("IT", "Italy"),
-    ("DE", "Germany"),
-    ("GB", "United Kingdom"),
-    ("AU", "Australia"),
-    ("JP", "Japan"),
-    ("CN", "China"),
-    ("BR", "Brazil"),
-    ("LB", "Libanon"),
+    ("United States", "United States"),
+    ("Canada", "Canada"),
+    ("Mexico", "Mexico"),
+    ("Spain", "Spain"),
+    ("France", "France"),
+    ("Italy", "Italy"),
+    ("Germany", "Germany"),
+    ("United Kingdom", "United Kingdom"),
+    ("Australia", "Australia"),
+    ("Japan", "Japan"),
+    ("China", "China"),
+    ("Brazil", "Brazil"),
+    ("Libanon", "Libanon"),
 )
 
 
@@ -26,4 +26,4 @@ class Actor(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.nam
